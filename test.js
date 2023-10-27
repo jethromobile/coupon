@@ -1,5 +1,8 @@
-const express = require("express");
+require("dotenv").config();
 const app = express();
+app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 const PORT = 3000;
 
 let coupons = [
@@ -394,6 +397,6 @@ app.get("/get-coupon", (req, res) => {
   res.json({ coupon });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(process.env.PORT || 6832, function () {
+  console.log("http://localhost:6832");
 });
