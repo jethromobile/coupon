@@ -1,4 +1,7 @@
 require("dotenv").config();
+const express = require("express");
+const ejs = require("ejs");
+const bodyParser = require("body-parser")
 const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -393,7 +396,7 @@ app.get("/get-coupon", (req, res) => {
   const coupon = coupons[0]; // Get the top coupon
   coupons = coupons.slice(1); // Remove the top coupon
 
-  res.json({ coupon });
+  res.send({ coupon });
 });
 
 const PORT = process.env.PORT || 3000;
