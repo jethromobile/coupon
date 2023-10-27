@@ -396,7 +396,7 @@ app.get("/get-coupon", (req, res) => {
   const coupon = coupons[0]; // Get the top coupon
   coupons = coupons.slice(1); // Remove the top coupon
 
-  res.send({ coupon });
+  res.json({ coupon });
 });
 
 const PORT = process.env.PORT || 3000;
