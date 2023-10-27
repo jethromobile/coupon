@@ -3,7 +3,6 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-const PORT = 3000;
 
 let coupons = [
   "SUBSCRIBER5640",
@@ -397,6 +396,7 @@ app.get("/get-coupon", (req, res) => {
   res.json({ coupon });
 });
 
-app.listen(process.env.PORT || 6832, function () {
-  console.log("http://localhost:6832");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
